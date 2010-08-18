@@ -11,8 +11,7 @@ task :install => :gem do
 end
 
 spec = Gem::Specification.new do |s|
-  s.platform = "rubinius"
-  s.summary  = "Rubinius implementation of ruby-debug-base"
+  s.summary  = "Rubinius only gem"
   s.name     = GEM_NAME
   s.version  = GEM_VERSION
   s.authors = ["Dr Nic Williams"]
@@ -31,8 +30,7 @@ spec = Gem::Specification.new do |s|
   s.test_files = Dir["test/**/test*.rb"]
 end
 
-gem_name = "#{GEM_NAME}-#{GEM_VERSION}-rubinius.gem"
-# gem_name = "#{GEM_NAME}-#{GEM_VERSION}-#{spec.platform}.gem"
+gem_name = "#{GEM_NAME}-#{GEM_VERSION}-#{spec.platform}.gem"
 
 desc "Build the gem file #{gem_name}"
 task :gem do
