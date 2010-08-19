@@ -1,0 +1,21 @@
+An attempt to write a gem that when packaged up only contains the compiled `*.rbc` files from rubinius.
+
+Theoretically, you can run (assuming rvm installed with rbx-head):
+
+    $ rvm rbx-head
+    $ ruby bin/rbx_only
+    
+    rake gem && gem install pkg/rbx_only-0.0.1.gem && rbx_only
+
+Though currently this fails on the `require "rbx_only"` line of `bin/rbx_only`:
+
+    $ rbx_only
+    Wee rubinius!
+    An exception occurred running /Users/drnic/.rvm/gems/rbx-head/bin/rbx_only
+        no such file to load -- rbx_only (LoadError)
+
+    Backtrace:
+    ...
+       main.__script__ at /Users/drnic/.rvm/gems/rbx-head/gems/rbx_only-0.0.1/bin/rbx_only:11
+
+Poop.

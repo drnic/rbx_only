@@ -27,9 +27,13 @@ spec = Gem::Specification.new do |s|
 end
 
 desc "Build the gem file"
-task :gem do
+task :gem => :build do
   gem_task = Rake::GemPackageTask.new(spec)
   Gem::Builder.new(spec).build
   mkdir "pkg" unless File.exist? "pkg"
   mv(gem_task.gem_file, "pkg/")
+end
+
+task :build do
+  # build the .rbc files if they don't exist yet
 end
