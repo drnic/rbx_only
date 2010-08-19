@@ -1,3 +1,11 @@
 #!/usr/bin/env ruby
 
-print `ruby -v`
+unless RUBY_ENGINE == "rbx"
+  puts "#{$0} requires rubinius"
+  exit 1
+end
+
+puts "Wee rubinius!"
+
+$:.unshift(File.dirname(__FILE__) + "/../lib")
+require "rbx_only"
